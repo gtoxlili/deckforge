@@ -1,0 +1,26 @@
+DeckForge — Proprietary Software Licence
+
+Copyright (c) 2026 gtoxlili. All rights reserved.
+
+This repository contains the installer, agent skill and documentation for
+deckforge. The DeckForge engine itself is distributed as compiled binaries
+through this repository's Releases and is proprietary, closed-source
+software.
+
+No licence is granted to copy, modify, distribute, reverse engineer,
+decompile or disassemble the DeckForge binaries, nor to extract, reproduce
+or adapt their embedded content — the authoring methodology, the design
+system recipes, the PPTL specification, or the bundled assets.
+
+The files in this repository (install.sh, SKILL.md, README.md, TERMS.md)
+may be copied and redistributed for the sole purpose of installing and
+using deckforge.
+
+Content created with DeckForge belongs to the user, without restriction on
+commercial use.
+
+Full commercial terms: TERMS.md, and `deckforge terms`.
+Licensing enquiries: gtoxltlx@gmail.com
+
+Third-party components bundled in the binaries retain their own licences;
+see the NOTICE shipped with each release.
