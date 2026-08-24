@@ -32,7 +32,7 @@ Windows（PowerShell）：
 deckforge version; if (-not $?) { irm https://deckforge.gtio.work/install.ps1 | iex }
 ```
 
-单文件，离线可用。macOS 装到 `~/.local/bin/deckforge`；Windows 装到
+单文件，渲染全程本地。macOS 装到 `~/.local/bin/deckforge`；Windows 装到
 `%LOCALAPPDATA%\deckforge\bin` 并加入当前用户 PATH（需新开终端生效）。
 
 `deckforge doctor` 报告本机能力：`preview` 与 `build --format pdf` / `png` 需要
@@ -71,7 +71,7 @@ PPTL 仅在 DeckForge 内有定义。brief 与解析 PPTL 的解析器出自同�
 | `deckforge check <dir>` | 执行校验，存在 error 时退出码非 0 |
 | `deckforge preview <dir> [--pages 1,3] [-o dir]` | 每页 PNG 与总览拼图 |
 | `deckforge build <dir> --format pptx\|pdf\|png\|html [-o out]` | 导出成品 |
-| `deckforge license [activate <token>]` | 授权状态与激活 |
+| `deckforge license [activate <key>]` | 授权状态与激活 |
 | `deckforge terms` | 授权条款 |
 | `deckforge doctor` | 环境自检 |
 
@@ -85,11 +85,11 @@ PPTL 仅在 DeckForge 内有定义。brief 与解析 PPTL 的解析器出自同�
 未授权状态下全流程可用；导出成品每页带署名水印，末尾附加一页联系页。
 
 ```bash
-deckforge license activate <token>          # 存一次，之后所有命令免传
-deckforge build ./deck --format pptx --token <token>
+deckforge license activate DF-XXXX-XXXX-XXXX-XXXX   # 存一次，之后所有命令免传
+deckforge build ./deck --format pptx --key DF-XXXX-XXXX-XXXX-XXXX
 ```
 
-也可使用环境变量 `DECKFORGE_TOKEN`。传入的 token 未通过验证时命令报错退出，不会
-静默降级为带水印的输出。
+也可使用环境变量 `DECKFORGE_KEY`。产出命令会实时校验授权；激活码未通过校验时
+命令报错退出，不会静默降级为带水印的输出。
 
 条款以 `deckforge terms` 的输出为准。

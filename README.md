@@ -32,8 +32,9 @@ DeckForge 采用另一种结构：
   图表在 PowerPoint 中均为真实对象，可继续修改数据与样式，而非截图嵌入。
 - **强制视觉 QA 闭环**。渲染真实截图与拼合总览图并返回给 agent，逐页核对七条
   检查后修正。
-- **完全离线**。图表库、公式渲染与图标全部内嵌于二进制，字体取自本机，无外网
-  环境同样可用。
+- **渲染零外部依赖**。图表库、公式渲染与图标全部内嵌于二进制，字体取自本机，
+  没有运行时下载与云端渲染。试用不联网；已授权使用时，产出命令会向授权服务做
+  一次实时校验。
 
 作业方法论、design system 配方与 PPTL 规格**随二进制分发**，由 `deckforge brief`
 输出。它与解析 PPTL 的解析器出自同一次构建，因此始终与本机渲染器保持一致。
@@ -69,8 +70,8 @@ macOS 默认装到 `~/.local/bin/deckforge`；Windows 装到
 ### 平台与依赖
 
 支持 macOS (arm64 / amd64) 与 Windows (amd64，ARM 版 Windows 通过 x64 兼容层
-运行)。不提供 Linux 构建。单文件，约 20MB，安装后不再需要联网。字体取自本机
-已安装的字体，不额外分发。
+运行)。不提供 Linux 构建。单文件，约 20MB。字体取自本机已安装的字体，不额外
+分发。试用不需要联网；已授权使用时唯一的网络交互是产出命令前的一次授权校验。
 
 | 能力 | 需要什么 |
 |---|---|
@@ -144,7 +145,7 @@ deckforge build <dir> --format ... 导出 PPTX / PDF
 | `deckforge check <dir>` | 执行校验，存在 error 时退出码非 0 |
 | `deckforge preview <dir> [--pages 1,3] [-o dir]` | 每页 PNG 与总览拼图 |
 | `deckforge build <dir> --format pptx\|pdf\|png\|html [-o out]` | 导出成品 |
-| `deckforge license [activate <token>]` | 授权状态与激活 |
+| `deckforge license [activate <key>]` | 授权状态与激活 |
 | `deckforge terms` | 商业授权条款 |
 | `deckforge doctor` | 环境自检 |
 
@@ -158,17 +159,21 @@ DeckForge 是商业授权软件。
 **未授权（试用）**：功能完整，全流程可用。导出成品每页带署名水印，末尾附加一页
 联系页，可用于评估效果。
 
-**已授权**：
+**已授权**：购买后获得一个激活码，它就是长期凭证。
 
 ```bash
-deckforge license activate <token>      # 存一次，之后所有命令免传
-deckforge build ./deck --format pptx    # 无水印成品
+deckforge license activate DF-XXXX-XXXX-XXXX-XXXX   # 存一次，之后所有命令免传
+deckforge build ./deck --format pptx                # 无水印成品
 ```
 
-也可以每次传 `--token <token>`，或设 `DECKFORGE_TOKEN` 环境变量。
+也可以每次传 `--key <激活码>`，或设 `DECKFORGE_KEY` 环境变量。
 
-传入的 token 未通过验证（格式错误、签名不符或已过期）时命令**直接报错退出**，
-不会静默降级为带水印的输出。
+激活码绑定席位：第一台使用它的机器占掉一个席位（默认一个，可按需购买多个）。
+换机或加装联系授权方调整即可，无需换码。
+
+产出命令会实时校验授权。激活码未通过校验（拼写错误、已吊销、已过期、席位已被
+其他机器占用）时命令**直接报错退出**，不会静默降级为带水印的输出。
+`deckforge license` 查看当前状态。
 
 受保护的是工具，不是产出：**创作的 deck 内容归用户所有，商用不受限制。**
 
