@@ -61,4 +61,6 @@ gtoxlili 不对因使用本软件产生的任何直接或间接损失承担责�
 
 ## 7. 联系
 
-授权咨询、企业/OEM 授权、问题反馈：**gtoxltlx@gmail.com**
+个人授权购买：官网 **https://deckforge.gtio.work**（在线购买即将上线）
+
+企业/OEM 授权、集成支持、问题反馈：**gtoxltlx@gmail.com**

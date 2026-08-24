@@ -177,6 +177,9 @@ deckforge build ./deck --format pptx                # 无水印成品
 
 受保护的是工具，不是产出：**创作的 deck 内容归用户所有，商用不受限制。**
 
-购买授权：**gtoxltlx@gmail.com**
+购买授权：官网 **[deckforge.gtio.work](https://deckforge.gtio.work)**（在线购买即将上线，
+当前可邮件预订首发早鸟名额）。
+
+企业/OEM 集成授权（把 DeckForge 包进你的付费服务）与技术支持：**gtoxltlx@gmail.com**
 
 条款以 `deckforge terms` 的输出为准；同一文本的存档见 [TERMS.md](TERMS.md)。
