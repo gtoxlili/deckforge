@@ -118,7 +118,7 @@ deckforge fonts --cjk              本机可用中文字体，供选型
 deckforge systems                  design system 索引
 deckforge systems cover <slug>     以真实标题在各候选系统内分别渲染封面
 deckforge new <dir> --system ...   创建项目，种入所选系统的 theme
-deckforge systems show --full      完整设计配方与封面样例
+deckforge systems show <slug> --full      完整设计配方与封面样例
 deckforge page write ...           写入页面 PPTL YAML
 deckforge preview <dir>            每页截图与总览拼图，附全 deck 校验报告
 deckforge page edit ...            页内局部替换
